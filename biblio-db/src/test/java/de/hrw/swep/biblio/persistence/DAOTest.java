@@ -1,7 +1,6 @@
 package de.hrw.swep.biblio.persistence;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.io.File;
 import java.util.Set;
@@ -13,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.hrw.swep.biblio.persistence.dto.BenutzerDTO;
+import de.hrw.swep.biblio.persistence.dto.BuchDTO;
 
 /**
  * Testklasse fuer den Datenbankzugriff
@@ -54,7 +54,8 @@ public class DAOTest {
   public void testGetBenutzerByName() {
   DAO dao = new DAO();
   Set <BenutzerDTO> b = dao.getBenutzerByName("Adalbert Alt");
-  assertTrue
+  assertTrue(b.size() == 1);
+  
   }
 
   /** 
@@ -62,7 +63,10 @@ public class DAOTest {
    */
   @Test
   public void testGetBuchByAutor() {
-    fail();
+    DAO dao = new DAO();
+    Set <BuchDTO> b = dao.getBuchByAutor("Karl Kaos");
+    assertTrue(b.size() == 1);
+    
   }
 
   /**
@@ -70,6 +74,9 @@ public class DAOTest {
    */
   @Test
   public void testGetBuchByTitle() {
-    fail();
+    DAO dao = new DAO();
+    Set <BuchDTO> b = dao.getBuchByTitle("Lost and Found");
+    assertTrue(b.size() == 1);
+    
   }
 }
