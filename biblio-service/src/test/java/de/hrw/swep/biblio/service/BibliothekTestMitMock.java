@@ -1,13 +1,12 @@
 package de.hrw.swep.biblio.service;
 
-import static org.junit.Assert.fail;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import de.hrw.swep.biblio.persistence.DBInterface;
 import de.hrw.swep.biblio.persistence.dto.BenutzerDTO;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 /**
@@ -32,6 +31,8 @@ public class BibliothekTestMitMock {
 				new BenutzerDTO(1, "erceng", "Gesperrt"));
 
 		// db.When.getBuchByAutor("Kaka").thenReturn
+
+		bib.setDb(db);
 
 	}
 
@@ -61,7 +62,9 @@ public class BibliothekTestMitMock {
 	 */
 	@Test
 	public void testSucheBenutzerNachId() {
-		fail("Not yet implemented");
-	}
+		bib = new Bibliothek();
 
+		assertTrue(bib.sucheBenutzerNachId(1).getName() == "erceng");
+
+	}
 }
