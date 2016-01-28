@@ -12,7 +12,7 @@ public class Frei implements Ausleihstatus {
 	public Frei(Gegenstand g) {
 		this.gegenstand = g;
 	}
-	
+
 	public void ausleihen(Benutzer user) {
 		if (user.isNormal()) {
 			this.gegenstand.setState(new Ausgeliehen(gegenstand));
@@ -25,5 +25,10 @@ public class Frei implements Ausleihstatus {
 
 	public void verloren() {
 		// TODO Statusübergang
+
+		this.gegenstand.setState(new Verloren(gegenstand));
+
+		// this.gegenstand.setState(new Verloren(gegenstand));
+
 	}
 }
